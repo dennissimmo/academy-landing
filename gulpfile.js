@@ -1,3 +1,4 @@
+// NOTE: valid version for "webp-converter": "2.2.3",
 // Main module
 import gulp from 'gulp';
 // Import path

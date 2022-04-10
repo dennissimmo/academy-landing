@@ -42,7 +42,7 @@
     "sass": "latest",
     "swiper": "latest",
     "vinyl-ftp": "latest",
-    "webp-converter": "latest",
+    "webp-converter": "2.2.3",
     "webpack": "latest",
     "webpack-stream": "latest"
   }
