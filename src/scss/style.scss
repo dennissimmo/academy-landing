@@ -1,13 +1,132 @@
+@use 'sass:math';
+
 // @import "fonts";
 
-@media (max-width: 768px) {
-    span {
-        font-size: 20px;
-    }
+// Connect fonts
+// &display = swap - add if you use plugin to install fonts
+@import url("https://fonts.googleapis.com/css?family=Inter:regular,500,600,700&display=swap");
+
+// Font by default
+$fontFamily: "Inter";
+$fontSize: rem(14); // 14 - font-size by default from maket 
+// Main colors
+$mainColor: #000; // Color of font by default
+
+
+// Settings
+// Minimal width of page
+$minWidth: 320;
+// Width of layout (maket)
+$maxWidth: 1440;
+// Width of limiting container
+$maxWidthContainer: 1180;
+// General padding of container
+$containerPadding: 30;
+
+// Width of first break point
+$containerWidth: $maxWidthContainer + $containerPadding;
+
+// Break points
+$pc: em($containerWidth); // PC, laptops, some tablets
+$tablet: em(991.98); // Tables, some phones in horizontal
+$mobile: em(767.98); // Phones L
+$mobileSmall: em(479.88); // Phones S
+
+// Type of adaptive:
+// 1 = responsiveness(відзивчивість) (container without break points),
+// 2 = by break-points (container changes their width by break points)
+$responsiveType: 1;
+
+// Zeroing and general parameters ============================================================================================================================================================================================== =============================================================================================== ===============================================================================================
+@import "base/null";
+
+body {
+	// Scroll blocked
+	.lock & {
+		overflow: hidden;
+		touch-action: none;
+	}
+	// Site loaded
+	.loaded & {
+	}
 }
 
-@media (max-width: 768px) {
-    span {
-        background-color: yellow;
-    }
+// Wrapper
+.wrapper {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	// Press footer down
+	> main {
+		flex: 1 1 auto;
+	}
+	// Fix for sliders
+	> * {
+		min-width: 0;
+	}
 }
+
+// Limiting container
+
+/*
+(i) 
+Styles will be applied to all classes containing *__container
+For example header__container, main__container, .etc
+Snippet (HTML): cnt
+*/
+@if ($responsiveType == 1) {
+	// Responsive
+	[class*="__container"] {
+		@if ($maxWidthContainer > 0) {
+			max-width: rem($maxWidthContainer);
+			box-sizing: content-box;
+			margin: 0 auto;
+		}
+		@if ($containerPadding > 0) {
+			padding: 0 rem(math.div($containerPadding, 2));
+		}
+	}
+} @else {
+	// By break points
+	[class*="__container"] {
+		margin: 0 auto;
+		@if ($maxWidthContainer > 0) {
+			max-width: rem($maxWidthContainer);
+			box-sizing: content-box;
+		} @else {
+			@if ($containerPadding > 0) {
+				padding: 0 rem(math.div($containerPadding, 2));
+			}
+		}
+		@media (max-width: $pc) {
+			max-width: rem(970);
+		}
+		@media (max-width: $tablet) {
+			max-width: rem(750);
+		}
+		@media (max-width: $mobile) {
+			max-width: none;
+			@if ($containerPadding > 0 and $maxWidthContainer > 0) {
+				padding: 0 rem(math.div($containerPadding, 2));
+			}
+		}
+	}
+}
+
+// Connecting basic styles, templates (blacks) and helper classes
+// To enable/disable specific styles, see base.scss
+@import "base";
+
+// Connect styles of common elements in project
+@import "common";
+
+// Connecting styles of separate blocks
+@import "header";
+@import "footer";
+
+// Connecting individual page styles
+@import "index";
+
+
+
