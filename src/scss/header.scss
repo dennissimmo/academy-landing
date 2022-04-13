@@ -1,0 +1,69 @@
+.header {
+
+    &__container {
+        display: flex;
+        align-items: center;
+        min-height: 236px;
+        @include adaptiveValue("min-height", 236, 80);
+    }
+
+    &__logo {
+        width: 62px;
+        height: 62px;
+        flex: 0 0 62px;
+        border-radius: 50%;
+        background: #EEEBFF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: rotate(30deg);
+        color: #7B61FF;
+        text-align: center;
+        font-weight: 600;
+        font-size: rem(24);
+    }
+
+    &__menu {
+    }
+
+    &__button {
+    }
+}
+.menu {
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+    padding: 0 0 0 10px;
+
+    &__icon {
+    }
+
+    &__body {
+        flex: 1 1 auto;
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    &__item {
+       @include adaptiveValue("margin-right", 80, 10);
+    }
+
+    &__link {
+        color: $grey;
+        font-weight: 500;
+        line-height: math.div(28, 18);
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+.icon-menu {
+}
+.button {
+
+}
