@@ -1,7 +1,6 @@
-import * as flsFunctions from "./modules/functions.js";
+console.log('script updated');
+// Functionality 
+import { menuInit } from "./files/functions.js";
 
-flsFunctions.isWebp();
-
-import Swiper, { Navigation, Pagination } from "swiper";
-
-const swiper = new Swiper();
+// Burger menu
+menuInit();
