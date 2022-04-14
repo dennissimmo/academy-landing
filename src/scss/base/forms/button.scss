@@ -7,6 +7,7 @@
     font-weight: 500;
     line-height: math.div(28, 18);
     color: indigo;
+	text-align: center;
 
 	display: inline-block;
 	padding: rem(11) rem(32);
@@ -17,6 +18,17 @@
             color: #FFFFFF;
 		}
 	}
+
+	&._bg {
+		background-color: $indigo;
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: transparent;
+				color: $indigo;
+			}
+		}
+	}
+
 	&._fw {
 		width: 100%;
 	}

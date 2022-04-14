@@ -4,12 +4,22 @@
     left: 0;
     width: 100%;
     z-index: 50;
+    transition: all 0.3s ease 0s;
+    &._header-scroll {
+        background-color: rgb(255, 255, 255, 0.8);
+    }
 
     &__container {
         display: flex;
         align-items: center;
         min-height: 236px;
         @include adaptiveValue("min-height", 236, 80);
+        transition: all 0.3s ease 0s;
+        ._header-scroll & {
+            min-height: rem(80);
+        }
+
+        
     }
 
     &__logo {
@@ -60,6 +70,10 @@
             padding: 0 rem(15) rem(30);
             transition: all 0.3s ease 0s;
 
+            ._header-scroll & {
+                padding-top: rem(120);
+            }
+
             &::before {
                 content: '';
                 position: fixed;
@@ -67,6 +81,9 @@
                 left: -100%;
                 top: 0;
                 @include adaptiveValue("min-height", 236, 80);
+                ._header-scroll & {
+                    min-height: rem(80);
+                }
                 background-color: #8380b6;
                 transition: all 0.3s ease 0s;
             }
