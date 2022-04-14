@@ -8,9 +8,37 @@
     <div class="wrapper">
         @@include('html/header.html', {})
         <main class="page">
-
+            <section class="page__section main-block">
+                <div class="main-block__container">
+                    <div class="main-block__content content-main">
+                        <div class="content-main__name">
+                            Jessica Strosin
+                        </div>
+                        <h1 class="content-main__title">
+                            Creative thinker
+                            Minimalism lover
+                        </h1>
+                        <div class="content-main__text">
+                            Hi, I’m Jessica. I’m UI/UX Designer. If you are looking for Designer to build your brands
+                            and grow your business Let’s shake hands with me.
+                        </div>
+                        <div class="content-main__buttons">
+                            <button data-popup="#popup" type="button" class="content-main__button button button_bg">Hire
+                                me</button>
+                            <a href="" class="content-main__button button">Read more</a>
+                        </div>
+                        <div class="content-main__info">
+                            I am currently open for part-time work.
+                        </div>
+                    </div>
+                    <div class="main-block__image">
+                        <img src="@img/main-block/woman.jpg" alt="woman" srcset="">
+                    </div>
+                </div>
+            </section>
         </main>
         @@include('html/footer.html', {})
+        @@include('html/popup.html', {})
     </div>
     <script src="js/app.min.js"></script>
 </body>

@@ -1,0 +1,86 @@
+// Index page
+
+.main-block {
+    @include adaptiveValue("padding-top", 337, 100);
+    @include adaptiveValue("padding-bottom", 100, 40);
+
+    &__container {
+        display: flex;
+
+        @media (max-width: $mobile) {
+            flex-direction: column;
+            gap: rem(30);
+        }
+    }
+
+    &__content {
+        align-self: center;
+        flex: 1 1 auto;
+        @include adaptiveValue("padding-right", 80, 20);
+
+        @media (max-width: $mobile) {
+            padding-right: 0;
+        }
+    }
+
+    &__image {
+        text-align: center;
+        flex: 0 0 math.div(478, $maxWidthContainer) * 100%;
+        img {
+            max-width: 100%;
+        }
+    }
+}
+.content-main {
+    display: grid;
+    @include adaptiveValue("gap", 40, 20);
+
+    &__name {
+        color: #4338CA;
+        font-weight: 500;
+        display: flex;
+        font-size: rem(20);
+        gap: rem(10);
+        align-items: center;
+        line-height: math.div(28, 20);
+
+        @media (min-width: $mobile) {
+            &::before {
+                content: '';
+                flex: 0 0 102px;
+                height: 1px;
+                background-color: #4338CA;
+            }
+        }
+    }
+
+    &__title {
+        font-weight: 700;
+        @include adaptiveValue("font-size", 72, 34);
+    }
+
+    &__text {
+        font-weight: 400;
+        line-height: math.div(28, 18);
+        color: $grey;
+    }
+
+    &__buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: rem(20);
+    }
+
+    &__button {
+        @media (max-width: $mobileSmall) {
+            flex: 1 1 auto;
+        }
+    }
+
+    &__info {
+        border-top: 1px solid #E5E7EB;
+        padding: rem(20) 0 0 0;
+        font-size: 12px;
+        line-height: math.div(16, 12);
+    }
+}

@@ -132,5 +132,10 @@ Snippet (HTML): cnt
 // Connecting individual page styles
 @import "index";
 
+.page {
+
+    &__section {
+    }
+}
 
 
