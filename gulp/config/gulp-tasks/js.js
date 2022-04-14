@@ -1,7 +1,9 @@
 import webpack from "webpack-stream";
+// import concat from "gulp-concat";
+// import uglify from "gulp-uglify-es";
 
 export const js = () => {
-    return app.gulp.src(app.path.src.js, { sourcemaps: app.isDev })
+    return app.gulp.src(app.path.src.js, { sourcemaps: true })
         .pipe(app.plugins.plumber(
             app.plugins.notify.onError({
                 title: "JS",
@@ -9,7 +11,7 @@ export const js = () => {
             })
         ))
         .pipe(webpack({
-            mode: app.isBuild ? 'production' : 'development',
+            mode: 'development',
             output: {
                 filename: 'app.min.js'
             }

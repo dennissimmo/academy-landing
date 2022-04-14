@@ -4,6 +4,8 @@ import notify from "gulp-notify"; // Messages (notificaions)
 import browsersync from "browser-sync"; // Local server
 import newer from "gulp-newer"; // Check updates
 import ifPlugin from "gulp-if"; // If condition;
+import prettier from "gulp-prettier"; // Formating code;
+
 
 // Export object
 
@@ -14,4 +16,5 @@ export const plugins = {
     notify: notify,
     browsersync: browsersync,
     newer: newer,
+    prettier: prettier
 }

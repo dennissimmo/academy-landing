@@ -2,9 +2,11 @@
 import * as nodePath from 'path';
 const rootFolder = nodePath.basename(nodePath.resolve());
 
+// Path for folder with sources and results
 const buildFolder = `./docs`;
 const srcFolder = `./src`;
 
+// Path to folders and files in project
 export const path = {
     build: {
         js: `${buildFolder}/js/`,
@@ -35,4 +37,11 @@ export const path = {
     srcFolder: srcFolder,
     rootFolder: rootFolder,
     ftp: `test`
+}
+
+export let configFTP = {
+    host: "", // Address of FTP server, IP
+    user: "", // Username
+    password: "", // Password
+    parallel: 5 // amount of threads, streams
 }

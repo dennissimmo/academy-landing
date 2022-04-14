@@ -2,7 +2,7 @@
   "name": "gulp",
   "version": "1.0.0",
   "description": "learln gulp configuration",
-  "main": "index.js",
+  "main": "gulpfile.js",
   "type": "module",
   "scripts": {
     "dev": "gulp",
@@ -44,6 +44,6 @@
     "vinyl-ftp": "latest",
     "webp-converter": "2.2.3",
     "webpack": "latest",
-    "webpack-stream": "latest"
+    "webpack-stream": "^7.0.0"
   }
 }
