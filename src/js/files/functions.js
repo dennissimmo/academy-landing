@@ -1,5 +1,8 @@
+// Import all modules
+import { flsModules } from "./modules.js";
+
+
 // Help modules blocking scroll and jumping
-// Вспомогательные модули блокировки прокрутки и скочка ====================================================================================================================================================================================================================================================================================
 export let bodyLockStatus = true;
 export let bodyLockToggle = (delay = 500) => {
     if (document.documentElement.classList.contains('lock')) {
@@ -64,6 +67,11 @@ export function menuClose() {
     document.documentElement.classList.remove("menu-open");
 }
 
+// Get hash (#) from site address (browser command line)
+export function getHash() {
+    if (location.hash) { return location.hash.replace('#', ''); }
+}
+
 // webp support
 
 // Check support of webp, adding class webp or no-webp for HTML
@@ -83,4 +91,13 @@ export function isWebp() {
             document.querySelector('body').classList.add('no-webp');
         }
     });
+}
+
+// FLS (Full Logging System)
+export function FLS(message) {
+    setTimeout(() => {
+        if (window.FLS) {
+            console.log(message);
+        }
+    }, 0);
 }
