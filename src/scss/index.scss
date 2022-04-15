@@ -162,6 +162,35 @@
     }
 }
 
-/*
-	multi line comment in nested
-*/
+.clients {
+    background: #FEF2F2;
+    @include adaptiveValue("padding-top", 100, 30);
+    @include adaptiveValue("padding-bottom", 100, 30);
+
+    &__container {
+
+    }
+
+    &__label {
+        color: $grey;
+        font-size: rem(20);
+        line-height: math.div(28, 20);
+        &:not(:last-child) {
+            margin-bottom: rem(20);
+        }
+    }
+
+    &__items {
+        display: grid;
+        align-items: center;
+        grid-template-columns: repeat(auto-fit, minmax(rem(200), 1fr));
+        text-align: center;
+        gap: rem(25)
+    }
+
+    &__item {
+        img {
+            max-width: 100%;
+        }
+    }
+}
