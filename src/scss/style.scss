@@ -1,7 +1,7 @@
 @use 'sass:math';
 
 // Import mixins
-@import "base/mixins";
+@import "base/mixins.scss";
 
 // @import "fonts";
 
@@ -120,7 +120,7 @@ Snippet (HTML): cnt
 
 // Connecting basic styles, templates (blacks) and helper classes
 // To enable/disable specific styles, see base.scss
-@import "base";
+@import "base.scss";
 
 // Connect styles of common elements in project
 @import "common";
@@ -132,10 +132,5 @@ Snippet (HTML): cnt
 // Connecting individual page styles
 @import "index";
 
-.page {
-
-    &__section {
-    }
-}
 
 
