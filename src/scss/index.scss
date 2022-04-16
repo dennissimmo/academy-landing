@@ -95,15 +95,8 @@
     }
 
     &__title {
-        text-align: center;
-        font-weight: 600;
         max-width: rem(1040);
-        margin: 0 auto;
-        @include adaptiveValue("font-size", 48, 28);
         @include adaptiveValue("margin-bottom", 150, 30);
-        span {
-            color: $indigo;
-        }
     }
 
     &__body {
@@ -192,5 +185,92 @@
         img {
             max-width: 100%;
         }
+    }
+}
+
+
+.gallery {
+    @include adaptiveValue("padding-top", 100, 30);
+    @include adaptiveValue("padding-bottom", 75, 30);
+
+    &__container {
+    }
+
+    &__title {
+        max-width: rem(1040);
+        @include adaptiveValue("margin-bottom", 150, 30);
+    }
+
+    &__items {
+        display: grid;
+        gap: rem(30);
+        @media (min-width: $mobile) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    &__item {
+    }
+}
+.item-gallery {
+    position: relative;
+
+    &_row-2 {
+        grid-row: span 2;
+    }
+
+    &_col-2 {
+       @media (min-width: $mobile) {
+        grid-column: span 2;
+        .item-gallery__image-ibg {
+            padding: 0 0 percent(400, 1180) 0;
+        }
+       }
+    }
+
+    @media (any-hover: hover) {
+        &:hover {
+            .item-gallery__content {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+
+    &__image-ibg {
+        padding: 0 0 percent(464, 620) 0;
+        height: 100%;
+        @media (max-width: $mobile) {
+            padding: 0 0 percent(620, 620) 0;
+        }
+    }
+
+    &__content {
+        position: absolute;
+        padding: rem(20);
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease 0s;
+        .touch & {
+            opacity: 1;
+            visibility: hidden;
+        }
+    }
+
+    &__body {
+        background-color: #fff;
+        padding: rem(25);
+    }
+
+    &__title {
+    }
+
+    &__text {
+        color: $grey;
+        font-size: rem(14);
+        line-height: math.div(20, 14);
     }
 }

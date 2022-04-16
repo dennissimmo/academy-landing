@@ -1,6 +1,10 @@
 // Import all modules
 import { flsModules } from "./modules.js";
 
+export function addTouchClass() {
+    // Addition of class _touch for HTML is browser is mobile
+    if (isMobile.any()) document.documentElement.classList.add('touch');
+}
 
 // Help modules blocking scroll and jumping
 export let bodyLockStatus = true;

@@ -1,1 +1,11 @@
 // Headers, BEM and another...
+
+.title {
+    text-align: center;
+        font-weight: 600;
+        margin: 0 auto;
+        @include adaptiveValue("font-size", 48, 28);
+        span {
+            color: $indigo;
+        }
+}
