@@ -43,18 +43,18 @@ export const ttfToWoff = () => {
 
 export const fontsStyle = () => {
     let fontsFile = `${app.path.srcFolder}/scss/fonts/fonts.scss`;
-    // Если передан флаг --rewrite удаляем файл подключения шрифтов
+    // If flag passed --rewrite remove file of connection font files
     app.isFontsReW ? fs.unlink(fontsFile, cb) : null;
-    // Проверяем существуют ли файлы шрифтов
+    // Check if font files exist
     fs.readdir(app.path.build.fonts, function (err, fontsFiles) {
         if (fontsFiles) {
-            // Проверяем существует ли файл стилей для подключения шрифтов
+            // Check if exist, file of styles of fonts connection
             if (!fs.existsSync(fontsFile)) {
-                // Если файла нет, создаем его
+                // If file don't exist create him
                 fs.writeFile(fontsFile, '', cb);
                 let newFileOnly;
                 for (var i = 0; i < fontsFiles.length; i++) {
-                    // Записываем подключения шрифтов в файл стилей
+                    // Writes connection fonts in file styles
                     let fontFileName = fontsFiles[i].split('.')[0];
                     if (newFileOnly !== fontFileName) {
                         let fontName = fontFileName.split('-')[0] ? fontFileName.split('-')[0] : fontFileName;
@@ -83,12 +83,12 @@ export const fontsStyle = () => {
                     }
                 }
             } else {
-                // Если файл есть, выводим сообщение
+                // If file exists, display a message
                 console.log("Файл scss/fonts/fonts.scss уже существует. Для обновления файла нужно его удалить!");
 
             }
         } else {
-            // Если шрифтов нет
+            // If don't fonts
             fs.unlink(fontsFile, cb)
         }
     });

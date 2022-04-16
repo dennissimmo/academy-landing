@@ -10,9 +10,6 @@ const paths = {
     build: path.resolve(builFolder)
 }
 
-console.log('Path:');
-console.log(paths);
-
 const config = {
     mode: "development",
     devtool: 'inline-source-map',
