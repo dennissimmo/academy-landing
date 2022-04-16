@@ -21,21 +21,25 @@ export const scss = () => {
         .pipe(sass({
             outputStyle: 'expanded'
         }))
+        // Uncoment if need not compressed copy of css files
+        .pipe(app.gulp.dest(app.path.build.css))
+        .pipe(
+            app.plugins.if(
+                app.isBuild,
+                cleanCss()
+            )
+        )
         .pipe(
             app.plugins.if(
                 app.isBuild,
                 groupCssMediaQueries()
             )
         )
-        .pipe(
-            app.plugins.if(
-                app.isBuild,
-                autoprefixer({
-                    grid: true,
-                    overrideBrowserslist: ["last 3 versions"],
-                    cascade: true
-                })
-            )
+        .pipe(autoprefixer({
+            grid: true,
+            overrideBrowserslist: ["last 3 versions"],
+            cascade: true
+        })
         )
         .pipe(
             app.plugins.if(
@@ -49,14 +53,6 @@ export const scss = () => {
                         }
                     )
                 )
-            )
-        )
-        // Uncoment if need not compressed copy of css files
-        .pipe(app.gulp.dest(app.path.build.css))
-        .pipe(
-            app.plugins.if(
-                app.isBuild,
-                cleanCss()
             )
         )
         .pipe(rename({
