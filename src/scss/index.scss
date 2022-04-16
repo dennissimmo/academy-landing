@@ -152,6 +152,12 @@
         line-height: math.div(16, 12);
         font-weight: 500;
         gap: rem(5);
+
+        @media (any-hover: hover) {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
 }
 

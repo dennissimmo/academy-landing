@@ -1,0 +1,39 @@
+.footer {
+    @include adaptiveValue("padding-top", 75, 30);
+    @include adaptiveValue("padding-bottom", 150, 30);
+    background: #FEF2F2;
+
+    &__container {
+    }
+
+    &__title {
+        &:not(:last-child) {
+            margin-bottom: rem(20);
+        }
+    }
+
+    &__text {
+        text-align: center;
+        color: $grey;
+        max-width: rem(660);
+        margin: 0 auto;
+        line-height: math.div(28, 18);
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 100, 30);
+        }
+    }
+
+    &__social {
+    }
+}
+
+.social {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    @include adaptiveValue("gap", 50 , 15);
+
+    &__icon {
+    }
+}
