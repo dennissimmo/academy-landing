@@ -57,8 +57,20 @@
     }
 
     &__title {
+        position: relative;
         font-weight: 700;
         @include adaptiveValue("font-size", 72, 34);
+        animation: appear 1.5s;
+    }
+
+    @keyframes appear {
+        0% {
+            left: rem(-600);
+        }
+
+        100% {
+            left: rem(0);
+        }
     }
 
     &__text {
