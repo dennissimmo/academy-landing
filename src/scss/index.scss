@@ -274,3 +274,49 @@
         line-height: math.div(20, 14);
     }
 }
+
+.advantages {
+    @include adaptiveValue("padding-top", 75, 30);
+    @include adaptiveValue("padding-bottom", 75, 30);
+
+    &__container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(rem(250), 1fr));
+        @include adaptiveValue("column-gap", 60, 20);
+        row-gap: rem(40);
+    }
+
+    &__item {
+        display: grid;
+        justify-items: center;
+    }
+
+    &__icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #EEF2FF;
+        border-radius: 6px;
+        width: rem(140);
+        height: rem(140);
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 40, 20);
+        }
+    }
+
+    &__title {
+        font-weight: 600;
+        @include adaptiveValue("font-size", 30, 24);
+
+        line-height: math.div(36, 30);
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 20, 15);
+        }
+    }
+
+    &__text {
+        color: $grey;
+        line-height: math.div(28, 18);
+    }
+}
+
